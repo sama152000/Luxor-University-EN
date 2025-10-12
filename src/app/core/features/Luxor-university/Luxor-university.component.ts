@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "./Pages/Shared/navbar/navbar.component";
 
 
 @Component({
@@ -7,9 +8,9 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './Luxor-university.component.html',
   styleUrls: ['./Luxor-university.component.css'],
    imports: [
-  RouterOutlet,
-
-  ]
+    RouterOutlet,
+    NavbarComponent
+]
 })
 export class LuxorUniversityComponent implements OnInit {
 

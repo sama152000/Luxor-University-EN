@@ -1,0 +1,272 @@
+.faculties-slider-section {
+  padding: var(--section-padding);
+  background: var(--primary-color, #003087);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 1rem auto 0;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pharaonic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+}
+
+.divider-line {
+  height: 2px;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, var(--accent-color, #f0a500));
+}
+
+.divider-line.reverse {
+  background: linear-gradient(90deg, var(--accent-color, #f0a500), transparent);
+}
+
+.lotus-ornament {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lotus-petal {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: var(--accent-color, #f0a500);
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+}
+
+.lotus-petal:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.lotus-petal:nth-child(2) {
+  transform: rotate(120deg);
+}
+
+.lotus-petal:nth-child(3) {
+  transform: rotate(240deg);
+}
+
+.slider-container {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.2s;
+}
+
+.slider-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel {
+  position: relative;
+}
+
+.faculty-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Default gap between logos */
+}
+
+.faculty-item {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(228, 144, 23, 0.5);
+  transition: all 0.3s ease;
+}
+
+.faculty-item.pharaonic {
+  width: 200px; /* Larger size for pharaonic image */
+  height: 200px;
+  margin: 0 40px; /* Larger gap on both sides */
+}
+
+.faculty-item:hover:not(.pharaonic) {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(228, 144, 23, 0.6);
+}
+
+.faculty-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white; /* Ensure logos have a clean background */
+}
+
+.item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(23, 28, 70, 0.95), rgba(39, 48, 117, 0.95));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.faculty-item:hover .item-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.overlay-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-color, #f0a500);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.slick-arrow {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.slick-arrow:hover {
+  background: var(--accent-color, #f0a500);
+}
+
+.slick-prev {
+  left: -60px;
+}
+
+.slick-next {
+  right: -60px;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: var(--accent-color, #f0a500);
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--accent-color, #f0a500);
+  opacity: 1;
+}
+
+@media (max-width: 991px) {
+  .faculty-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  .faculty-item.pharaonic {
+    width: 160px;
+    height: 160px;
+    margin: 0 30px;
+  }
+
+  .faculty-items {
+    gap: 15px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .faculties-slider-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .faculty-item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .faculty-item.pharaonic {
+    width: 120px;
+    height: 120px;
+    margin: 0 20px;
+  }
+
+  .faculty-items {
+    gap: 10px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .slick-prev {
+    left: -30px;
+  }
+
+  .slick-next {
+    right: -30px;
+  }
+
+  .slick-dots {
+    bottom: -30px;
+  }
+}
