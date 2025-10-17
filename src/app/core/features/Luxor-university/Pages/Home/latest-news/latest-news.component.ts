@@ -7,7 +7,9 @@ import{FormsModule}from'@angular/forms';
 @Component({
   selector: 'app-latest-news',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule
+
+  ],
   templateUrl: './latest-news.component.html',
   styleUrls: ['./latest-news.component.css']
 })

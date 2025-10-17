@@ -9,12 +9,14 @@ import { EventsConferencesComponent } from "./events-conferences/events-conferen
 import { GalleryComponent } from "./gallery/gallery.component";
 import { LatestNewsComponent } from "./latest-news/latest-news.component";
 import { FacultiesSliderComponent } from "./faculties-slider/faculties-slider.component";
+import { StatisticsComponent } from "./statistics/statistics.component";
+import { ContactUsComponent } from "./contact-us/contact-us.component";
 
 @Component({
   selector: 'app-Home',
   templateUrl: './Home.component.html',
   styleUrls: ['./Home.component.css'],
-  imports: [NavbarComponent, HeroComponent, ServicesCardsComponent, PresidentMessageComponent, FooterComponent, VisionMissionGoalsComponent, EventsConferencesComponent, GalleryComponent, LatestNewsComponent, FacultiesSliderComponent]
+  imports: [NavbarComponent, HeroComponent, ServicesCardsComponent, PresidentMessageComponent, FooterComponent, VisionMissionGoalsComponent, EventsConferencesComponent, GalleryComponent, LatestNewsComponent, FacultiesSliderComponent, StatisticsComponent, ContactUsComponent]
 })
 export class HomeComponent implements OnInit {
 

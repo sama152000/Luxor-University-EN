@@ -20,7 +20,7 @@ export class FacultiesSliderComponent implements OnInit {
         { type: 'logo', imageUrl: './assets/logo1.png', title: 'Faculty of Arts' },
         { type: 'logo', imageUrl: './assets/logo2.png', title: 'Faculty of Engineering' },
         { type: 'pharaonic', imageUrl: './assets/middle.png', title: 'Pharaonic Symbol' },
-        { type: 'logo', imageUrl: './assets/logo4.png', title: 'Faculty of Medicine' },
+        { type: 'logo', imageUrl: './assets/logo3.png', title: 'Faculty of Medicine' },
         { type: 'logo', imageUrl: './assets/logo5.png', title: 'Faculty of Science' }
       ]
     },

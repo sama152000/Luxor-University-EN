@@ -1,3 +1,25 @@
+.latest-news-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.left-frame,
+.right-frame {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: auto;
+  z-index: -1;
+}
+
+.left-frame {
+  left: 0;
+}
+
+.right-frame {
+  right: 0;
+}
+
   .latest-news-section {
       padding: 5rem 0;
       background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -73,6 +95,15 @@
     .main-news-container {
       margin-bottom: 4rem;
     }
+
+    .lotus-ornament {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .main-news-image {
       position: relative;

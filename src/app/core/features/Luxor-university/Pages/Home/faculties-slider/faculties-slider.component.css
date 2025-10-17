@@ -56,8 +56,8 @@
 
 .lotus-ornament {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,42 +99,49 @@
 
 .carousel {
   position: relative;
+  width: 100% !important; /* ✅ تأكيد عرض كامل */
 }
 
+/* ✅ التحديث الرئيسي: عرض كامل 100% */
 .faculty-items {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: space-between !important; /* ✅ توزيع متساوي على العرض كامل */
   align-items: center;
-  gap: 20px; /* Default gap between logos */
+  width: 100% !important; /* ✅ عرض كامل */
+  max-width: 100% !important;
+  padding: 0 20px !important; /* ✅ مساحة صغيرة من الجوانب */
+  box-sizing: border-box !important;
+  gap: 0 !important; /* ✅ إزالة الـgap للعرض الكامل */
 }
 
+/* ✅ أحجام اللوجوز - متساوية ومناسبة للعرض الكامل */
 .faculty-item {
-  width: 120px;
-  height: 120px;
+  flex: 1 !important; /* ✅ ياخد المساحة المتاحة متساوياً */
+  max-width: 200px !important; /* ✅ حد أقصى للحفاظ على الشكل */
+  height: 200px !important;
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(228, 144, 23, 0.5);
   transition: all 0.3s ease;
+  margin: 0 8px !important; /* ✅ مساحة صغيرة بين اللوجوز */
 }
 
+/* ✅ الـPharaonic أكبر شوية لكن مش يخرب العرض */
 .faculty-item.pharaonic {
-  width: 200px; /* Larger size for pharaonic image */
-  height: 200px;
-  margin: 0 40px; /* Larger gap on both sides */
+  max-width: 300px !important;
+  height: 300px !important;
+  flex: 1.4 !important; /* ✅ أكبر شوية بس مش كتير */
+  margin: 0 12px !important;
 }
 
 .faculty-item:hover:not(.pharaonic) {
-  transform: scale(1.1);
+  transform: scale(1.05) !important; /* ✅ تقليل الـscale علشان ميخرجش من العرض */
   box-shadow: 0 15px 40px rgba(228, 144, 23, 0.6);
 }
 
 .faculty-image {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: contain;
-  background: white; /* Ensure logos have a clean background */
 }
 
 .item-overlay {
@@ -162,18 +169,19 @@
 }
 
 .overlay-title {
-  font-size: 1rem;
+  font-size: 0.9rem !important; /* ✅ صغير شوية للعرض الجديد */
   font-weight: 700;
   color: var(--accent-color, #f0a500);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* ✅ تحسين الأسهم */
 .slick-arrow {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 45px !important;
+  height: 45px !important;
   z-index: 3;
   transition: all 0.3s ease;
 }
@@ -183,19 +191,19 @@
 }
 
 .slick-prev {
-  left: -60px;
+  left: 10px !important; /* ✅ قريب من الحواف */
 }
 
 .slick-next {
-  right: -60px;
+  right: 10px !important;
 }
 
 .slick-dots {
-  bottom: -40px;
+  bottom: -45px !important;
 }
 
 .slick-dots li button:before {
-  font-size: 12px;
+  font-size: 14px !important;
   color: var(--accent-color, #f0a500);
   opacity: 0.5;
 }
@@ -205,68 +213,80 @@
   opacity: 1;
 }
 
+/* ========================================
+RESPONSIVE - عرض كامل في كل الأحجام
+======================================== */
 @media (max-width: 991px) {
+  .faculty-items {
+    padding: 0 15px !important;
+  }
+  
   .faculty-item {
-    width: 100px;
-    height: 100px;
+    max-width: 110px !important;
+    height: 110px !important;
+    margin: 0 6px !important;
   }
 
   .faculty-item.pharaonic {
-    width: 160px;
-    height: 160px;
-    margin: 0 30px;
-  }
-
-  .faculty-items {
-    gap: 15px;
+    max-width: 150px !important;
+    height: 150px !important;
+    margin: 0 8px !important;
   }
 
   .section-title {
     font-size: 2rem;
   }
 
-  .section-subtitle {
-    font-size: 1rem;
+  .overlay-title {
+    font-size: 0.8rem !important;
   }
 }
 
 @media (max-width: 767px) {
   .faculties-slider-section {
-    padding: 4rem 1.5rem;
-  }
-
-  .faculty-item {
-    width: 80px;
-    height: 80px;
-  }
-
-  .faculty-item.pharaonic {
-    width: 120px;
-    height: 120px;
-    margin: 0 20px;
+    padding: 4rem 1rem !important;
   }
 
   .faculty-items {
-    gap: 10px;
+    padding: 0 10px !important;
+  }
+
+  .faculty-item {
+    max-width: 90px !important;
+    height: 90px !important;
+    margin: 0 4px !important;
+  }
+
+  .faculty-item.pharaonic {
+    max-width: 120px !important;
+    height: 120px !important;
+    margin: 0 6px !important;
   }
 
   .section-title {
     font-size: 1.8rem;
   }
 
-  .section-subtitle {
-    font-size: 0.9rem;
+  .overlay-title {
+    font-size: 0.75rem !important;
   }
 
-  .slick-prev {
-    left: -30px;
+  .slick-prev, .slick-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .faculty-item {
+    max-width: 75px !important;
+    height: 75px !important;
+    margin: 0 3px !important;
   }
 
-  .slick-next {
-    right: -30px;
-  }
-
-  .slick-dots {
-    bottom: -30px;
+  .faculty-item.pharaonic {
+    max-width: 100px !important;
+    height: 100px !important;
+    margin: 0 5px !important;
   }
 }
