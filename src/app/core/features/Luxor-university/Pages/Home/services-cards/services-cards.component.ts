@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import{FormsModule}from'@angular/forms';
 interface ServiceCard {
   title: string;
   icon: string;
@@ -10,7 +10,7 @@ interface ServiceCard {
 @Component({
   selector: 'app-services-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './services-cards.component.html',
   styleUrls: ['./services-cards.component.css']
 })

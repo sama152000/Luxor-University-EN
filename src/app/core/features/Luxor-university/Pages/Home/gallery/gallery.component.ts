@@ -2,11 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GalleryItem } from '../../../model/gallery-item.model';
 import { GalleryService } from '../../../Services/gallery.service';
+import{FormsModule}from'@angular/forms';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+FormsModule
+  ],
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
