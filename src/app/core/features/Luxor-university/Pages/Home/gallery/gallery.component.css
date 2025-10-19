@@ -3,7 +3,8 @@
   background: transparent;
   position: relative;
   overflow: hidden;
-  gap: 0.5em;
+  gap: 0em;
+  height: 400px;
 }
 
 .pharaonic-background {
@@ -33,7 +34,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   background: linear-gradient(135deg, rgba(23, 28, 70, 0.726) 0%, rgba(39, 48, 117, 0.719) 100%);
   z-index: 0;
 }
@@ -114,7 +115,7 @@
   position: relative;
   width: 100%;
   max-width: 900px; /* Increased from 700px */
-  height: 600px; /* Increased from 500px */
+  height: 300px; /* Increased from 500px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +124,7 @@
 .globe {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 50%;
   transform-style: preserve-3d;
   animation: rotateGlobe 40s linear infinite;
 }
@@ -144,7 +145,7 @@
 .globe-item {
   position: absolute;
   width: 200px; /* Increased from 140px */
-  height: 200px; /* Increased from 140px */
+  height: 100px; /* Increased from 140px */
   left: 50%;
   top: 50%;
   margin-left: -100px; /* Adjusted for new size */
@@ -154,7 +155,7 @@
 
 .item-content {
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: relative;
   border-radius: 16px; /* Slightly larger border-radius */
   overflow: hidden;
@@ -225,7 +226,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px; /* Increased from 500px */
-  height: 600px; /* Increased from 500px */
+  height: 500px; /* Increased from 500px */
   border-radius: 50%;
   background: radial-gradient(circle, rgba(228, 144, 23, 0.2), transparent 70%);
   pointer-events: none;
