@@ -34,10 +34,10 @@
                   <i class="pi pi-calendar me-2"></i>
                   <span>{{ featuredNews.date | date: 'MMMM dd, yyyy' }}</span>
                 </div>
-                <button class="btn-read-more">
+                <a [routerLink]="['/news', featuredNews.id]" class="btn-read-more">
                   Read Full Article
                   <i class="pi pi-arrow-right ms-2"></i>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -59,6 +59,10 @@
                       <i class="pi pi-clock me-1"></i>
                       {{ newsItem.date | date: 'MMM dd, yyyy' }}
                     </span>
+                    <a [routerLink]="['/news', newsItem.id]" class="read-more-link">
+                      Read More
+                      <i class="pi pi-arrow-right ms-1"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -67,11 +71,11 @@
         </div>
 
         <div class="text-center mt-5">
-          <button class="btn-view-all">
+          <a [routerLink]="['/all-news']" class="btn-view-all">
             <i class="pi pi-list me-2"></i>
             View All News
             <i class="pi pi-external-link ms-2"></i>
-          </button>
+          </a>
         </div>
       </div>
     </section>

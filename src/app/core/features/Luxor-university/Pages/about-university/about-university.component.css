@@ -1,0 +1,300 @@
+.about-university-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 4rem 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--section-padding);
+
+}
+
+.pharaonic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/18991575/pexels-photo-18991575.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: slowZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.pharaonic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: linear-gradient(135deg, rgba(0, 48, 135, 0.9) 0%, rgba(240, 164, 0, 0.651) 100%);
+  z-index: 0;
+}
+
+.about-university-container {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(240, 165, 0, 0.3);
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 1s ease-out;
+}
+
+.about-university-container.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 🔥 Vertical Tabs */
+.vertical-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px 0 0 20px;
+  padding: 1.5rem 0;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  border-radius: 15px;
+  margin: 0.5rem 1rem;
+  
+  &:hover {
+    background: rgba(240, 165, 0, 0.2);
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(240, 165, 0, 0.3);
+  }
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #F0A500, #E48C17);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(240, 165, 0, 0.4);
+  
+  .tab-icon i {
+    color: white !important;
+  }
+}
+
+.tab-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  
+  i {
+    font-size: 1.5rem;
+    color: #F0A500;
+  }
+}
+
+.tab-item.active .tab-icon {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(360deg);
+}
+
+.tab-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.tab-indicator {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid #F0A500;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-item.active .tab-indicator {
+  opacity: 1;
+}
+
+/* 🔥 Content Area */
+.content-area {
+  flex: 1;
+  padding: 3rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.content-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #F0A500, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  text-shadow: none;
+  letter-spacing: 2px;
+}
+
+.pharaonic-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #F0A500, transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.pyramid-icon {
+  width: 30px;
+  height: 30px;
+  color: #F0A500;
+  margin: 1rem auto;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.content-body {
+  flex: 1;
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #f8f9fa;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: justify;
+}
+
+/* 🔥 Goals Section */
+.goals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.goal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(240, 165, 0, 0.15);
+  border-radius: 15px;
+  border-right: 4px solid #F0A500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.2);
+  }
+}
+
+.goal-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #F0A500, #E48C17);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.goal-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #f8f9fa;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-university-container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .vertical-tabs {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    border-radius: 15px 15px 0 0;
+    padding: 1rem;
+  }
+  
+  .tab-item {
+    flex: none;
+    white-space: nowrap;
+    margin: 0 0.5rem;
+  }
+  
+  .content-area {
+    padding: 2rem 1rem;
+  }
+  
+  .content-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-university-section {
+    padding: 2rem 0;
+  }
+  
+  .content-title {
+    font-size: 1.8rem;
+  }
+  
+  .description, .goal-text {
+    font-size: 1rem;
+  }
+  
+  .goal-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}

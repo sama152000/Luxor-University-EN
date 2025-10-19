@@ -13,13 +13,16 @@ export class NavbarComponent {
 
   menuItems = [
     { label: 'Home', link: '#home' },
-    { label: 'About the University', link: '#about' },
-    { label: 'News', link: '#news' },
-    { label: 'Faculties & Programs', link: '#faculties' },
-    { label: 'Student Life', link: '#student-life' },
-    { label: 'Sectors', link: '#sectors' },
-    { label: 'Healthcare', link: '#healthcare' },
-    { label: 'Contact Us', link: '#contact' }
+    { label: 'About the University', link: './about' },
+    { label: 'News', link: '/all-news' },
+    {label :'Departments',link:'./departments'},
+        {label :'Organizational Structure',link:'./OrganizationalStructure'},
+
+    { label: 'Faculties & Programs', link: './faculties' },
+    { label: 'Student Life', link: './coming-soon' },
+    { label: 'Sectors', link: 'sectors' },
+    // { label: 'Healthcare', link: '#healthcare' },
+    { label: 'Contact Us', link: 'contact-us' }
   ];
 
   @HostListener('window:scroll', [])
