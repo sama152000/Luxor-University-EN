@@ -1,40 +1,9 @@
 .about-university-section {
   position: relative;
   min-height: 100vh;
-  padding: 4rem 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
   padding: var(--section-padding);
-
-}
-
-.pharaonic-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.pexels.com/photos/18991575/pexels-photo-18991575.jpeg');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  animation: slowZoom 25s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.15); }
-}
-
-.pharaonic-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-    background: linear-gradient(135deg, rgba(0, 48, 135, 0.9) 0%, rgba(240, 164, 0, 0.651) 100%);
-  z-index: 0;
+  background: #ffffff; /* 🔥 خلفية بيضاء */
+  overflow: hidden;
 }
 
 .about-university-container {
@@ -44,11 +13,10 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
+  background: #ffffff; /* 🔥 بيضاء 100% */
   border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 2px solid rgba(240, 165, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* ظل خفيف */
+  border: 2px solid rgba(240, 165, 0, 0.2); /* إطار ذهبي خفيف */
   opacity: 0;
   transform: translateY(50px) scale(0.95);
   transition: all 1s ease-out;
@@ -64,10 +32,10 @@
   display: flex;
   flex-direction: column;
   width: 280px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #f8f9fa; /* رمادي فاتح */
   border-radius: 20px 0 0 20px;
   padding: 1.5rem 0;
-  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .tab-item {
@@ -79,30 +47,28 @@
   position: relative;
   border-radius: 15px;
   margin: 0.5rem 1rem;
+  color: #333; /* 🔥 نص غامق */
   
   &:hover {
-    background: rgba(240, 165, 0, 0.2);
+    background: #fff3cd; /* أصفر فاتح */
     transform: translateX(10px);
-    box-shadow: 0 8px 25px rgba(240, 165, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(240, 165, 0, 0.15);
+    color: #333;
   }
 }
 
 .tab-item.active {
   background: linear-gradient(135deg, #F0A500, #E48C17);
-  color: white;
+  color: white !important; /* 🔥 أبيض في التاب النشط */
   transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(240, 165, 0, 0.4);
-  
-  .tab-icon i {
-    color: white !important;
-  }
+  box-shadow: 0 12px 35px rgba(240, 165, 0, 0.3);
 }
 
 .tab-icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,15 +82,18 @@
 }
 
 .tab-item.active .tab-icon {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
   transform: rotate(360deg);
+  
+  i {
+    color: #F0A500 !important;
+  }
 }
 
 .tab-title {
   font-weight: 700;
   font-size: 1.1rem;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: none; /* 🔥 بدون ظل */
 }
 
 .tab-indicator {
@@ -149,7 +118,7 @@
 .content-area {
   flex: 1;
   padding: 3rem;
-  color: white;
+  background: #ffffff; /* 🔥 بيضاء */
   display: flex;
   flex-direction: column;
 }
@@ -162,13 +131,10 @@
 .content-title {
   font-size: 2.8rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #F0A500, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1e3c72 !important; /* 🔥 أزرق غامق */
   margin-bottom: 1.5rem;
-  text-shadow: none;
   letter-spacing: 2px;
+  text-shadow: none;
 }
 
 .pharaonic-divider {
@@ -199,8 +165,8 @@
 .description {
   font-size: 1.25rem;
   line-height: 2;
-  color: #f8f9fa;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: #333 !important; /* 🔥 أسود غامق */
+  text-shadow: none;
   text-align: justify;
 }
 
@@ -216,14 +182,14 @@
   align-items: flex-start;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(240, 165, 0, 0.15);
+  background: #f8f9fa; /* رمادي فاتح */
   border-radius: 15px;
   border-right: 4px solid #F0A500;
   transition: all 0.3s ease;
   
   &:hover {
     transform: translateX(10px);
-    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.15);
   }
 }
 
@@ -244,9 +210,9 @@
 .goal-text {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: #f8f9fa;
+  color: #333 !important; /* 🔥 أسود غامق */
   margin: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 /* Responsive */
