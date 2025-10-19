@@ -92,6 +92,7 @@ if (url.includes('/contact-us')) {
       return { title: 'Contact Us', breadcrumbs: [{label: 'Contact Us', url: '/contact-us'}] };
     }
 
+   
     return configMap[url] || { title: 'Luxor University', breadcrumbs: [] };
   }
 }
