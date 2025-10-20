@@ -122,19 +122,19 @@ export class NewsDetailsComponent implements OnInit {
   }
 
   getNewsTitle(news: News): string {
-    return this.currentLanguage === 'en' ? news.title : news.titleAr;
+    return news.title;
   }
 
   getNewsContent(news: News): string {
-    return this.currentLanguage === 'en' ? news.content : news.contentAr;
+    return news.content;
   }
 
   getNewsCategory(news: News): string {
-    return this.currentLanguage === 'en' ? news.category : news.categoryAr;
+    return news.category;
   }
 
   getNewsAuthor(news: News): string {
-    return this.currentLanguage === 'en' ? news.author : news.authorAr;
+    return news.author;
   }
 
   shareOnFacebook(): void {

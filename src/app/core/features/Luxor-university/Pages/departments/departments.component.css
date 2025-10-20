@@ -72,7 +72,7 @@
 /* 📐 Layout - نفس Sectors */
 .departments-layout {
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 400px 1fr;
   gap: 3rem;
   align-items: start;
 }

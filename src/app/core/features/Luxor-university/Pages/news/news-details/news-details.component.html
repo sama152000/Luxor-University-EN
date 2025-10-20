@@ -13,11 +13,11 @@
               <span class="category-badge">{{ getNewsCategory(currentNews) }}</span>
               <span *ngIf="currentNews.isBreaking" class="breaking-badge">
                 <i class="pi pi-bolt"></i>
-                {{ currentLanguage === 'en' ? 'Breaking News' : 'عاجل' }}
+                Breaking News
               </span>
               <span *ngIf="currentNews.isTrending" class="trending-badge">
                 <i class="pi pi-fire"></i>
-                {{ currentLanguage === 'en' ? 'Trending' : 'رائج' }}
+                Trending
               </span>
             </div>
 
@@ -40,12 +40,12 @@
                 <div class="article-stats">
                   <span class="views-count">
                     <i class="pi pi-eye"></i>
-                    {{ currentNews.views }} {{ currentLanguage === 'en' ? 'views' : 'مشاهدة' }}
+                    {{ currentNews.views }} views
                   </span>
                 </div>
 
                 <div class="share-buttons">
-                  <span class="share-label">{{ currentLanguage === 'en' ? 'Share:' : 'شارك:' }}</span>
+                  <span class="share-label">Share:</span>
                   <button class="share-btn facebook" (click)="shareOnFacebook()" title="Share on Facebook">
                     <i class="pi pi-facebook"></i>
                   </button>
@@ -115,10 +115,10 @@
             <div class="article-tags" *ngIf="currentNews.tags.length > 0">
               <h4 class="tags-title">
                 <i class="pi pi-tags"></i>
-                {{ currentLanguage === 'en' ? 'Tags:' : 'العلامات:' }}
+                Tags:
               </h4>
               <div class="tags-list">
-                <span class="tag" *ngFor="let tag of (currentLanguage === 'en' ? currentNews.tags : currentNews.tagsAr)">
+                <span class="tag" *ngFor="let tag of currentNews.tags">
                   {{ tag }}
                 </span>
               </div>
@@ -149,7 +149,7 @@
         <div class="most-read-section">
           <h3 class="section-title">
             <i class="pi pi-star"></i>
-            {{ currentLanguage === 'en' ? 'Most Read Articles' : 'المقالات الأكثر قراءة' }}
+            Most Read Articles
           </h3>
 
           <div class="most-read-grid">
@@ -180,7 +180,7 @@
       <div class="col-12 text-center">
         <a [routerLink]="['/all-news']" class="btn btn-outline-primary-custom back-btn">
           <i class="pi pi-arrow-left"></i>
-          {{ currentLanguage === 'en' ? 'Back to All News' : 'العودة لجميع الأخبار' }}
+          Back to All News
         </a>
       </div>
     </div>
@@ -195,7 +195,7 @@
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
-        <p class="loading-text">{{ currentLanguage === 'en' ? 'Loading article...' : 'جاري تحميل المقال...' }}</p>
+        <p class="loading-text">Loading article...</p>
       </div>
     </div>
   </div>

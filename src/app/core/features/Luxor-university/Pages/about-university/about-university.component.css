@@ -1,6 +1,6 @@
 .about-university-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: var(--section-padding);
   background: #ffffff; /* 🔥 خلفية بيضاء */
   overflow: hidden;

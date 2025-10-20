@@ -11,7 +11,7 @@
       <div class="trending-header">
         <h3 class="trending-title">
           <i class="pi pi-fire"></i>
-          {{ currentLanguage === 'en' ? 'Trending Now' : 'الأكثر تداولاً' }}
+          Trending Now
         </h3>
       </div>
       <div class="trending-ticker">
@@ -35,7 +35,7 @@
         <div class="filter-header">
           <h3 class="filter-title">
             <i class="pi pi-filter"></i>
-            {{ currentLanguage === 'en' ? 'Filter News' : 'تصفية الأخبار' }}
+            Filter News
           </h3>
         </div>
         <div class="filter-content">
@@ -45,12 +45,12 @@
               <div class="filter-group">
                 <label class="filter-label">
                   <i class="pi pi-search"></i>
-                  {{ currentLanguage === 'en' ? 'Search' : 'البحث' }}
+                  Search
                 </label>
                 <input type="text" 
                        class="form-control filter-input" 
                        [(ngModel)]="searchTerm"
-                       [placeholder]="currentLanguage === 'en' ? 'Search news...' : 'البحث في الأخبار...'"
+                       placeholder="Search news..."
                        (keyup.enter)="applyFilter()">
               </div>
             </div>
@@ -60,10 +60,10 @@
               <div class="filter-group">
                 <label class="filter-label">
                   <i class="pi pi-tags"></i>
-                  {{ currentLanguage === 'en' ? 'Category' : 'الفئة' }}
+                  Category
                 </label>
                 <select class="form-select filter-input" [(ngModel)]="selectedCategory">
-                  <option value="">{{ currentLanguage === 'en' ? 'All Categories' : 'جميع الفئات' }}</option>
+                  <option value="">All Categories</option>
                   <option *ngFor="let category of categories" [value]="category">
                     {{ category }}
                   </option>
@@ -76,7 +76,7 @@
               <div class="filter-group">
                 <label class="filter-label">
                   <i class="pi pi-calendar"></i>
-                  {{ currentLanguage === 'en' ? 'From Date' : 'من تاريخ' }}
+                  From Date
                 </label>
                 <input type="date" 
                        class="form-control filter-input" 
@@ -89,7 +89,7 @@
               <div class="filter-group">
                 <label class="filter-label">
                   <i class="pi pi-calendar"></i>
-                  {{ currentLanguage === 'en' ? 'To Date' : 'إلى تاريخ' }}
+                  To Date
                 </label>
                 <input type="date" 
                        class="form-control filter-input" 
@@ -104,13 +104,13 @@
                         (click)="applyFilter()" 
                         [disabled]="loading">
                   <i class="pi pi-search"></i>
-                  {{ currentLanguage === 'en' ? 'Apply' : 'تطبيق' }}
+                  Apply
                 </button>
                 <button class="btn btn-outline-secondary filter-btn" 
                         (click)="clearFilter()" 
                         [disabled]="loading">
                   <i class="pi pi-times"></i>
-                  {{ currentLanguage === 'en' ? 'Clear' : 'مسح' }}
+                  Clear
                 </button>
               </div>
             </div>
@@ -132,7 +132,7 @@
           <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
-          <p class="loading-text">{{ currentLanguage === 'en' ? 'Loading news...' : 'جاري تحميل الأخبار...' }}</p>
+          <p class="loading-text">Loading news...</p>
         </div>
       </div>
 
@@ -151,7 +151,7 @@
                   <span class="category-badge">{{ getNewsCategory(news) }}</span>
                   <span *ngIf="news.isBreaking" class="breaking-badge">
                     <i class="pi pi-bolt"></i>
-                    {{ currentLanguage === 'en' ? 'Breaking' : 'عاجل' }}
+                    Breaking
                   </span>
                 </div>
               </div>
@@ -179,10 +179,10 @@
                 <div class="card-footer">
                   <div class="news-author">
                     <i class="pi pi-user"></i>
-                    <span>{{ currentLanguage === 'en' ? news.author : news.authorAr }}</span>
+                    <span>{{ news.author }}</span>
                   </div>
                   <a [routerLink]="['/news', news.id]" class="read-more-btn">
-                    {{ currentLanguage === 'en' ? 'Read More' : 'اقرأ المزيد' }}
+                    Read More
                     <i class="pi pi-arrow-right"></i>
                   </a>
                 </div>
@@ -196,13 +196,13 @@
           <div class="no-results-content">
             <i class="pi pi-info-circle no-results-icon"></i>
             <h3 class="no-results-title">
-              {{ currentLanguage === 'en' ? 'No news found' : 'لا توجد أخبار' }}
+              No news found
             </h3>
             <p class="no-results-text">
-              {{ currentLanguage === 'en' ? 'Try adjusting your filters or check back later for new content.' : 'جرب تعديل الفلاتر أو تحقق لاحقاً من المحتوى الجديد.' }}
+              Try adjusting your filters or check back later for new content.
             </p>
             <button class="btn btn-primary-custom" (click)="clearFilter()">
-              {{ currentLanguage === 'en' ? 'Clear Filters' : 'مسح الفلاتر' }}
+              Clear Filters
             </button>
           </div>
         </div>
@@ -218,7 +218,7 @@
                       (click)="onPageChange(currentPage - 1)"
                       [disabled]="currentPage === 1">
                 <i class="pi pi-chevron-left"></i>
-                {{ currentLanguage === 'en' ? 'Previous' : 'السابق' }}
+                Previous
               </button>
             </li>
 
@@ -236,7 +236,7 @@
               <button class="page-link" 
                       (click)="onPageChange(currentPage + 1)"
                       [disabled]="currentPage === totalPages">
-                {{ currentLanguage === 'en' ? 'Next' : 'التالي' }}
+                Next
                 <i class="pi pi-chevron-right"></i>
               </button>
             </li>
@@ -245,12 +245,12 @@
         
         <div class="pagination-info">
           <span>
-            {{ currentLanguage === 'en' ? 'Showing' : 'عرض' }}
+            Showing
             {{ (currentPage - 1) * pageSize + 1 }} -
             {{ min(currentPage * pageSize, totalItems) }}
-            {{ currentLanguage === 'en' ? 'of' : 'من' }}
+            of
             {{ totalItems }}
-            {{ currentLanguage === 'en' ? 'results' : 'نتيجة' }}
+            results
           </span>
         </div>
       </div>

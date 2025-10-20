@@ -40,6 +40,7 @@ export class AllNewsComponent implements OnInit {
   // Breaking news ticker
   breakingNewsIndex = 0;
   breakingNewsInterval: any;
+Trending: any;
 
   constructor(private newsService: NewsService) {}
 
@@ -127,15 +128,15 @@ export class AllNewsComponent implements OnInit {
   }
 
   getNewsTitle(news: News): string {
-    return this.currentLanguage === 'en' ? news.title : news.titleAr;
+    return news.title;
   }
 
   getNewsDescription(news: News): string {
-    return this.currentLanguage === 'en' ? news.description : news.descriptionAr;
+    return news.description;
   }
 
   getNewsCategory(news: News): string {
-    return this.currentLanguage === 'en' ? news.category : news.categoryAr;
+    return news.category;
   }
 
   getPaginationArray(): number[] {
