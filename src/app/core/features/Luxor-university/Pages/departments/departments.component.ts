@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PrimeNGConfig } from 'primeng/api';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { Department } from '../../model/department.model';
@@ -23,12 +22,10 @@ export class DepartmentsComponent implements OnInit {
   isMobileSidebarVisible = false;
 
   constructor(
-    private departmentService: DepartmentService,
-    private primengConfig: PrimeNGConfig
+    private departmentService: DepartmentService
   ) {}
 
   ngOnInit() {
-    this.primengConfig.ripple = true;
     this.departments = this.departmentService.getAllDepartments();
     if (this.departments.length > 0) {
       this.selectDepartment(this.departments[0].slug);
