@@ -18,7 +18,7 @@
     height: var(--top-navbar-height);
     display: flex;
     align-items: center;
-    padding: var(--section-padding, 0 15px) !important;
+    padding: 8px;
 }
 
 .language-link {
