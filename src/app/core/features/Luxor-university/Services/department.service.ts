@@ -101,17 +101,142 @@ export class DepartmentService {
   ];
 
   private orgStructure: HierarchyNode = {
-    name: 'Prof. Dr. Sabrin Gaber Abdel Galil',
+    name: 'President of Luxor University',
     position: 'University President',
     children: [
+      {
+        name: 'Office of the University President',
+        position: 'Department',
+        children: [
+          {
+            name: 'Executive Advisors: Dr. Khamis El-Duraidi',
+            position: 'Advisor'
+          },
+          {
+            name: 'Information Systems & Digital Transformation',
+            position: 'Department'
+          },
+          {
+            name: 'Computing & Information',
+            position: 'Department'
+          },
+          {
+            name: 'Support, Development & Training',
+            position: 'Department'
+          },
+          {
+            name: 'Citations, Libraries & Digital Repositories',
+            position: 'Department'
+          },
+          {
+            name: 'Networks, Servers & Cybersecurity',
+            position: 'Department'
+          },
+          {
+            name: 'Public Relations',
+            position: 'Department'
+          },
+          {
+            name: 'Media & Translation',
+            position: 'Department'
+          },
+          {
+            name: 'Development & Quality Assurance',
+            position: 'Department'
+          },
+          {
+            name: 'Strategic Management',
+            position: 'Department'
+          },
+          {
+            name: 'Internal Monitoring & Auditing',
+            position: 'Department'
+          }
+        ]
+      },
       {
         name: 'Vice President for Education & Student Affairs',
         position: 'Vice President',
         children: [
           {
-            name: 'Administration of Education & Student Affairs',
+            name: 'Education Affairs',
+            position: 'Department'
+          },
+          {
+            name: 'Enrollment & Registration',
+            position: 'Department'
+          },
+          {
+            name: 'Student Activities',
+            position: 'Department'
+          },
+          {
+            name: 'University Housing',
+            position: 'Department'
+          },
+          {
+            name: 'Postgraduate Studies & Research',
+            position: 'Department'
+          },
+          {
+            name: 'Scientific Research',
+            position: 'Department'
+          },
+          {
+            name: 'University Libraries',
+            position: 'Department'
+          },
+          {
+            name: 'Academic Publishing',
+            position: 'Department'
+          },
+          {
+            name: 'Open & Blended Learning',
             position: 'Department',
-            department: this.departments.find(d => d.slug === 'education-student-affairs') // Link if exists
+            children: [
+              {
+                name: 'Blended Learning',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Open Education',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Cultural & Scientific Relations',
+            position: 'Department'
+          },
+          {
+            name: 'Scholarships',
+            position: 'Department'
+          },
+          {
+            name: 'Secondments',
+            position: 'Department'
+          },
+          {
+            name: 'Cultural Agreements',
+            position: 'Department'
+          },
+          {
+            name: 'Community Service & Environmental Development',
+            position: 'Department',
+            children: [
+              {
+                name: 'Community Service',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Environmental Development',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Environmental Projects',
+                position: 'Sub-Department'
+              }
+            ]
           }
         ]
       },
@@ -120,9 +245,48 @@ export class DepartmentService {
         position: 'Vice President',
         children: [
           {
-            name: 'General Administration for Graduate Studies & Research',
-            position: 'Department',
-            department: this.departments.find(d => d.slug === 'graduate-studies-research')
+            name: 'Postgraduate Studies',
+            position: 'Department'
+          },
+          {
+            name: 'Faculty Affairs',
+            position: 'Department'
+          },
+          {
+            name: 'Research Affairs',
+            position: 'Department'
+          },
+          {
+            name: 'Scientific Research',
+            position: 'Department'
+          },
+          {
+            name: 'Applied Research',
+            position: 'Department'
+          },
+          {
+            name: 'Innovation & Invention',
+            position: 'Department'
+          },
+          {
+            name: 'Scientific Publishing & Documentation',
+            position: 'Department'
+          },
+          {
+            name: 'Scientific & Cultural Relations',
+            position: 'Department'
+          },
+          {
+            name: 'International Academic Relations',
+            position: 'Department'
+          },
+          {
+            name: 'Scholarships & Missions',
+            position: 'Department'
+          },
+          {
+            name: 'Conferences & Seminars',
+            position: 'Department'
           }
         ]
       },
@@ -130,17 +294,215 @@ export class DepartmentService {
         name: 'Vice President for Community Service & Environmental Development',
         position: 'Vice President',
         children: [
-          // Add relevant departments
+          {
+            name: 'Community Service',
+            position: 'Department',
+            children: [
+              {
+                name: 'Internal Community Service',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'External Community Service',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Social Initiatives',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Environmental Development',
+            position: 'Department',
+            children: [
+              {
+                name: 'Sustainable Environmental Development',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Environmental Awareness Programs',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Green Projects & Initiatives',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Environmental Projects',
+                position: 'Department',
+                children: [
+                  {
+                    name: 'Research Projects',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'Environmental Consultations',
+                    position: 'Sub-Department'
+                  }
+                ]
+              }
+            ]
+          }
         ]
       },
       {
-        name: 'University Secretary-General',
+        name: 'University Secretary General (Amin El-Gamea)',
         position: 'Secretary-General',
-        children: this.departments.map(dep => ({
-          name: dep.name,
-          position: 'Department',
-          department: dep
-        }))
+        children: [
+          {
+            name: 'University Council Secretariat & Legal Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'University Council Secretariat',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Legal Affairs',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Financial Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'Accounts',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Procurement',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Administrative Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'Personnel Affairs',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'General Services',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Payroll & Benefits',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Engineering Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'Maintenance & Facilities',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Engineering Projects',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Urban Planning',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Library Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'Faculty Libraries',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Central Library',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Databases & Information Systems',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Academic Affairs',
+            position: 'Department',
+            children: [
+              {
+                name: 'University Education',
+                position: 'Sub-Department'
+              },
+              {
+                name: 'Scheduling & Examinations',
+                position: 'Sub-Department'
+              }
+            ]
+          },
+          {
+            name: 'Assistant Secretaries (Deputy Secretaries)',
+            position: 'Deputy Secretary',
+            children: [
+              {
+                name: 'Administrative Affairs',
+                position: 'Department',
+                children: [
+                  {
+                    name: 'Personnel Affairs',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'General Services',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'Payroll & Benefits',
+                    position: 'Sub-Department'
+                  }
+                ]
+              },
+              {
+                name: 'Financial Affairs',
+                position: 'Department',
+                children: [
+                  {
+                    name: 'Accounts',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'Procurement',
+                    position: 'Sub-Department'
+                  }
+                ]
+              },
+              {
+                name: 'Technical Affairs',
+                position: 'Department',
+                children: [
+                  {
+                    name: 'Engineering Projects',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'Maintenance',
+                    position: 'Sub-Department'
+                  },
+                  {
+                    name: 'Transportation & Operations',
+                    position: 'Sub-Department'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   };

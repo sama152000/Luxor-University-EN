@@ -13,6 +13,8 @@ import { KuliatesComponent } from './core/features/Luxor-university/Pages/kuliat
 import { ContactUsComponent } from './core/features/Luxor-university/Pages/contact-us/contact-us.component';
 import { AboutUniversityComponent } from './core/features/Luxor-university/Pages/about-university/about-university.component';
 import { ComingSoonComponent } from './core/features/Luxor-university/Pages/Shared/coming-soon/coming-soon.component';
+import { UniversityCentersListComponent } from './core/features/Luxor-university/Pages/centers/university-centers-list/university-centers-list.component';
+import { CenterDetailsComponent } from './core/features/Luxor-university/Pages/centers/center-details/center-details.component';
 
 export const routes: Routes = [
 
@@ -38,6 +40,9 @@ export const routes: Routes = [
                                     { path :'contact-us',component:ContactUsComponent},
                                                                         { path :'about',component:AboutUniversityComponent},
                                  { path :'coming-soon',component:ComingSoonComponent},
+{ path :'Center-list',component:UniversityCentersListComponent},
+{ path :'centers/:id',component:CenterDetailsComponent},
+
 
 
 

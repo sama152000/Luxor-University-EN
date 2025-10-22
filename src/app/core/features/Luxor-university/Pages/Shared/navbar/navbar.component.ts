@@ -22,6 +22,8 @@ export class NavbarComponent {
     { label: 'Student Life', link: './coming-soon' },
     { label: 'Sectors', link: 'sectors' },
     // { label: 'Healthcare', link: '#healthcare' },
+        { label: 'Center list', link: 'Center-list' },
+
     { label: 'Contact Us', link: 'contact-us' }
   ];
 
