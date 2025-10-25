@@ -397,7 +397,7 @@ export class DepartmentService {
             ]
           },
           {
-            name: 'Engineering Affairs',
+            name: 'Engineering Administration',
             position: 'Department',
             children: [
               {

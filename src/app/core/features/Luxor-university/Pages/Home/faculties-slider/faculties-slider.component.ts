@@ -13,6 +13,7 @@ export class FacultiesSliderComponent implements OnInit {
   @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
   isVisible = false;
+  isMobile = false;
 
   slides = [
     {
@@ -57,6 +58,8 @@ export class FacultiesSliderComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.checkMobile();
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -71,15 +74,23 @@ export class FacultiesSliderComponent implements OnInit {
         observer.observe(element);
       }
     }, 100);
+
+    window.addEventListener('resize', () => {
+      this.checkMobile();
+    });
   }
 
-  pauseSlider() {
+  checkMobile() {
+    this.isMobile = window.innerWidth < 768;
+  }
+
+  public pauseSlider() {
     if (this.slickModal) {
       this.slickModal.unslick();
     }
   }
 
-  resumeSlider() {
+  public resumeSlider() {
     if (this.slickModal) {
       this.slickModal.initSlick();
     }

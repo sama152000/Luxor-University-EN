@@ -15,7 +15,8 @@
     </div>
 
     <div class="slider-container" [class.visible]="isVisible">
-      <ngx-slick-carousel #slickModal class="carousel" [config]="slideConfig">
+      <!-- Desktop/Tablet Carousel -->
+      <ngx-slick-carousel #slickModal class="carousel" [config]="slideConfig" *ngIf="!isMobile">
         <div ngxSlickItem *ngFor="let slide of slides" class="slide">
           <div class="faculty-items">
             <div
@@ -34,6 +35,21 @@
           </div>
         </div>
       </ngx-slick-carousel>
+
+      <!-- Mobile Stacked Layout -->
+      <div class="mobile-faculty-items" *ngIf="isMobile">
+        <div
+          class="faculty-item"
+          *ngFor="let item of slides[0].items"
+          [class.pharaonic]="item.type === 'pharaonic'">
+          <img [src]="item.imageUrl" [alt]="item.title" class="faculty-image">
+          <div class="item-overlay" *ngIf="item.type !== 'pharaonic'">
+            <div class="overlay-content">
+              <h4 class="overlay-title">{{ item.title }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
