@@ -1,6 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NavbarService } from '../../../Services/navbar.service';
+import { NavbarItem } from '../../../model/navbar.model';
+
 @Component({
 selector: 'app-navbar',
 standalone: true,
@@ -8,21 +11,18 @@ imports: [CommonModule, RouterModule],
 templateUrl: './navbar.component.html',
 styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 isScrolled = false;
 isMenuOpen = false;
-menuItems = [
-{ label: 'Home', link: '/home' },
-{ label: 'About the University', link: '/about' },
-{ label: 'News', link: '/all-news' },
-{ label: 'Departments', link: '/departments' },
-{ label: 'Organizational Structure', link: '/org-structure' },
-{ label: 'Faculties & Programs', link: '/faculties' },
-{ label: 'Student Life', link: '/coming-soon' },
-{ label: 'Sectors', link: '/sectors' },
-{ label: 'Center list', link: '/Center-list' },
-{ label: 'Contact Us', link: '/contact-us' }
-];
+menuItems: NavbarItem[] = [];
+
+constructor(private navbarService: NavbarService) {}
+
+ngOnInit() {
+this.navbarService.getNavbarItems().subscribe(items => {
+this.menuItems = items;
+});
+}
 toggleMenu() {
 this.isMenuOpen = !this.isMenuOpen;
 }

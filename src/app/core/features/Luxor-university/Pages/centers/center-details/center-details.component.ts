@@ -37,9 +37,7 @@ export class CenterDetailsComponent implements OnInit {
       if (id) {
         this.center = this.centersService.getCenterById(id);
         this.currentIndex = this.centers.findIndex(c => c.id === id);
-        if (this.center) {
-          this.breadcrumbs[2].label = this.center.name;
-        }
+        // Breadcrumbs are now passed as input to page-header
       }
     });
     setTimeout(() => {

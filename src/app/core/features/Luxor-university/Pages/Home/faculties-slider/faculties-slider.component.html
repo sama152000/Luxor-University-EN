@@ -16,13 +16,13 @@
 
     <div class="slider-container" [class.visible]="isVisible">
       <!-- Desktop/Tablet Carousel -->
-      <ngx-slick-carousel #slickModal class="carousel" [config]="slideConfig" *ngIf="!isMobile">
-        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <ngx-slick-carousel #slickModal class="carousel" [config]="slideConfig" *ngIf="!isMobile && slides.length > 0">
+        <div ngxSlickItem *ngFor="let item of slides" class="slide">
           <div class="faculty-items">
             <div
               class="faculty-item"
-              *ngFor="let item of slide.items"
               [class.pharaonic]="item.type === 'pharaonic'"
+              (click)="item.type !== 'pharaonic' ? navigateToFaculties() : null"
               (mouseenter)="item.type !== 'pharaonic' ? pauseSlider() : null"
               (mouseleave)="resumeSlider()">
               <img [src]="item.imageUrl" [alt]="item.title" class="faculty-image">
@@ -38,10 +38,7 @@
 
       <!-- Mobile Stacked Layout -->
       <div class="mobile-faculty-items" *ngIf="isMobile">
-        <div
-          class="faculty-item"
-          *ngFor="let item of slides[0].items"
-          [class.pharaonic]="item.type === 'pharaonic'">
+        <div class="faculty-item" *ngFor="let item of slides" [class.pharaonic]="item.type === 'pharaonic'" (click)="item.type !== 'pharaonic' ? navigateToFaculties() : null">
           <img [src]="item.imageUrl" [alt]="item.title" class="faculty-image">
           <div class="item-overlay" *ngIf="item.type !== 'pharaonic'">
             <div class="overlay-content">

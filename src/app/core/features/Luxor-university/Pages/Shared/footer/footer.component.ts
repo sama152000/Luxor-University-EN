@@ -1,16 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface FooterLink {
-  label: string;
-  link: string;
-}
-
-interface SocialLink {
-  icon: string;
-  link: string;
-  label: string;
-}
+import { FooterService } from '../../../Services/footer.service';
+import { FooterData } from '../../../model/footer.model';
 
 @Component({
   selector: 'app-footer',
@@ -19,40 +10,35 @@ interface SocialLink {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   currentYear = new Date().getFullYear();
+  footerData: FooterData | null = null;
 
-  universityInfo = {
-    description: 'Luxor University is an academic institution committed to providing high-quality education and research.',
-    slogan: 'From the heritage of our civilization, we shape the future.'
-  };
+  constructor(private footerService: FooterService) {}
 
-  quickLinks: FooterLink[] = [
-    { label: 'Home', link: '#home' },
-    { label: 'About the University', link: '#about' },
-    { label: 'Faculties & Programs', link: '#faculties' },
-    { label: 'Student Life', link: '#student-life' },
-    { label: 'Contact Us', link: '#contact' }
-  ];
+  ngOnInit() {
+    this.footerService.getFooterData().subscribe(data => {
+      this.footerData = data;
+    });
+  }
 
-  importantLinks: FooterLink[] = [
-    { label: 'University Council', link: '#council' },
-    { label: 'Faculty Members', link: '#faculty' },
-    { label: 'Postgraduate Studies', link: '#postgraduate' },
-    { label: 'Administrative Affairs', link: '#administration' },
-    { label: 'Academic Calendar', link: '#calendar' }
-  ];
+  get universityInfo() {
+    return this.footerData?.universityInfo || { description: '', slogan: '' };
+  }
 
-  contactInfo = {
-    address: 'Luxor, Avenue of Sphinxes, Arab Republic of Egypt',
-    phone: '+20 95 000 0000',
-    email: 'info@luxoruniv.edu.eg'
-  };
+  get quickLinks() {
+    return this.footerData?.quickLinks || [];
+  }
 
-  socialLinks: SocialLink[] = [
-    { icon: 'pi-facebook', link: '#', label: 'Facebook' },
-    { icon: 'pi-twitter', link: '#', label: 'Twitter' },
-    { icon: 'pi-linkedin', link: '#', label: 'LinkedIn' },
-    { icon: 'pi-youtube', link: '#', label: 'YouTube' }
-  ];
+  get importantLinks() {
+    return this.footerData?.importantLinks || [];
+  }
+
+  get contactInfo() {
+    return this.footerData?.contactInfo || { address: '', phone: '', email: '' };
+  }
+
+  get socialLinks() {
+    return this.footerData?.socialLinks || [];
+  }
 }

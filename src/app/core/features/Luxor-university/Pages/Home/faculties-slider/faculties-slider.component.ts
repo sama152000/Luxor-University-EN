@@ -1,32 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
-
+import { Router } from '@angular/router';
+import { FacultiesProgramsService } from '../../../Services/faculties-programs.service';
 @Component({
   selector: 'app-faculties-slider',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule],
+  imports: [CommonModule, RouterModule, SlickCarouselModule],
   templateUrl: './faculties-slider.component.html',
   styleUrls: ['./faculties-slider.component.css']
 })
 export class FacultiesSliderComponent implements OnInit {
   @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
+  constructor(private facultiesProgramsService: FacultiesProgramsService, private router: Router) {}
+
   isVisible = false;
   isMobile = false;
 
-  slides = [
-    {
-      items: [
-        { type: 'logo', imageUrl: './assets/logo1.png', title: 'Faculty of Arts' },
-        { type: 'logo', imageUrl: './assets/logo2.png', title: 'Faculty of Engineering' },
-        { type: 'pharaonic', imageUrl: './assets/middle.png', title: 'Pharaonic Symbol' },
-        { type: 'logo', imageUrl: './assets/logo3.png', title: 'Faculty of Medicine' },
-        { type: 'logo', imageUrl: './assets/logo5.png', title: 'Faculty of Science' }
-      ]
-    },
-   
-  ];
+  slides: any[] = [];
 
   slideConfig = {
     slidesToShow: 5,
@@ -38,7 +31,7 @@ export class FacultiesSliderComponent implements OnInit {
     arrows: true,
     dots: true,
     centerMode: true,
-    centerPadding: '40px', /* Larger gap for center image */
+    centerPadding: '40px',
     responsive: [
       {
         breakpoint: 992,
@@ -59,6 +52,16 @@ export class FacultiesSliderComponent implements OnInit {
 
   ngOnInit() {
     this.checkMobile();
+
+    this.facultiesProgramsService.getFacultiesSlider().subscribe(data => {
+      this.slides = data.map(item => ({
+        type: 'logo',
+        imageUrl: item.imageUrl,
+        title: item.title
+      }));
+      // Insert pharaonic item at index 2
+      this.slides.splice(0, 0, { type: 'pharaonic', imageUrl: '/assets/middle.png', title: 'Pharaonic Symbol' });
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -86,13 +89,17 @@ export class FacultiesSliderComponent implements OnInit {
 
   public pauseSlider() {
     if (this.slickModal) {
-      this.slickModal.unslick();
+      this.slickModal.slickPause();
     }
   }
 
   public resumeSlider() {
     if (this.slickModal) {
-      this.slickModal.initSlick();
+      this.slickModal.slickPlay();
     }
+  }
+
+  navigateToFaculties() {
+    this.router.navigate(['/faculties']);
   }
 }

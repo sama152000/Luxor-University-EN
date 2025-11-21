@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageHeaderComponent } from '../Shared/page-header/page-header.component';
 import { FooterComponent } from '../Shared/footer/footer.component';
-import { VisionMissionService } from '../../Services/vision-mission.service';
+import { AboutUniversityService } from '../../Services/about-university.service';
 
 interface Tab {
   id: string;
@@ -23,7 +23,7 @@ export class AboutUniversityComponent implements OnInit {
   activeTab = 'vision';
   tabs: Tab[] = [];
 
-  constructor(private visionMissionService: VisionMissionService) {}
+  constructor(private aboutUniversityService: AboutUniversityService) {}
 
   get activeTabTitle(): string {
     const tab = this.tabs.find(t => t.id === this.activeTab);
@@ -41,30 +41,31 @@ export class AboutUniversityComponent implements OnInit {
   }
 
   ngOnInit() {
+    const data = this.aboutUniversityService.getAboutUniversity();
     this.tabs = [
       {
         id: 'vision',
         title: 'Our Vision',
         icon: 'pi pi-eye',
-        content: this.visionMissionService.getVision()
+        content: data.vision
       },
       {
         id: 'mission',
         title: 'Our Mission',
         icon: 'pi pi-flag',
-        content: this.visionMissionService.getMission()
+        content: data.mission
       },
       {
         id: 'goals',
         title: 'Our Goals',
         icon: 'pi pi-bullseye',
-        content: this.visionMissionService.getGoals()
+        content: data.goals
       },
       {
         id: 'history',
         title: 'Our History',
         icon: 'pi pi-history',
-        content: this.visionMissionService.getHistory()
+        content: data.history
       }
     ];
 

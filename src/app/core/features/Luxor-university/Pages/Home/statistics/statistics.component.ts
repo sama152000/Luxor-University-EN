@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{FormsModule}from'@angular/forms';
+import { StatisticsService } from '../../../Services/statistics.service';
+import { Statistic } from '../../../model/statistics.model';
 
 @Component({
   selector: 'app-statistics',
@@ -11,16 +13,15 @@ import{FormsModule}from'@angular/forms';
 })
 export class StatisticsComponent implements OnInit {
   isVisible = false;
+  stats: Statistic[] = [];
 
-  stats = [
-    { icon: 'pi pi-briefcase', number: 11, description: 'Staff' },
-    { icon: 'pi pi-users', number: 1090, description: 'Faculty Members' },
-    { icon: 'pi pi-graduation-cap', number: 32090, description: 'Undergraduate Students' },
-    { icon: 'pi pi-book', number: 2090, description: 'Graduate Students' },
-    { icon: 'pi pi-globe', number: 1201, description: 'International Students' }
-  ];
+  constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
+    this.statisticsService.getStatistics().subscribe(stats => {
+      this.stats = stats;
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

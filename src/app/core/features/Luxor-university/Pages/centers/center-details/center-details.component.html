@@ -1,7 +1,7 @@
-<app-page-header ></app-page-header>
+<app-page-header  [breadcrumbs]="[{label: 'Centers', url: '/Center-list'}]"></app-page-header>
 <section class="center-details-section">
   <div class="container-fluid py-5">
-    
+
     <div class="center-details" *ngIf="center">
       <div class="row">
         <div class="col-12">

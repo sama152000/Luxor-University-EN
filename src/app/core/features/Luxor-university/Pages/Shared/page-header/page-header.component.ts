@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-  @Input() title: string = 'Luxor University';
+  @Input() title?: string;
   @Input() breadcrumbs: Array<{label: string, url?: string}> = [];
 
   constructor(private router: Router) {}
@@ -29,8 +29,12 @@ export class PageHeaderComponent implements OnInit {
 
   private updateHeader(url: string) {
     const pageConfig = this.getPageConfig(url);
-    this.title = pageConfig.title;
-    this.breadcrumbs = pageConfig.breadcrumbs;
+    if (!this.title) {
+      this.title = pageConfig.title;
+    }
+    if (this.breadcrumbs.length === 0) {
+      this.breadcrumbs = pageConfig.breadcrumbs;
+    }
   }
 
   private getPageConfig(url: string): { title: string; breadcrumbs: Array<{label: string, url?: string}> } {
@@ -62,7 +66,10 @@ export class PageHeaderComponent implements OnInit {
       '/all-news': { title: 'Latest News & Updates', breadcrumbs: [{label: 'News', url: '/news'}, {label: 'All News', url: '/all-news'}] },
       '/student-life': { title: 'Student Life', breadcrumbs: [{label: 'Student Life', url: '/student-life'}] },
       '/healthcare': { title: 'Healthcare Services', breadcrumbs: [{label: 'Healthcare', url: '/healthcare'}] },
-      '/contact': { title: 'Contact Us', breadcrumbs: [{label: 'Contact', url: '/contact'}] }
+      '/contact-us': { title: 'Contact Us', breadcrumbs: [{label: 'Contact', url: '/contact-us'}] },
+            '/OrganizationalStructure': { title: 'Organizational Structure', breadcrumbs: [{label: 'OrganizationalStructure', url: '/OrganizationalStructure'}] },
+      '/Center-list': { title: 'University Centers', breadcrumbs: [{label: 'Centers'}] },
+
     };
 
     // Sector details dynamic
@@ -92,7 +99,9 @@ if (url.includes('/contact-us')) {
       return { title: 'Contact Us', breadcrumbs: [{label: 'Contact Us', url: '/contact-us'}] };
     }
 
-   
+    if (url.includes('/centers/:id/')) {
+      return { title: 'centers/:id', breadcrumbs: [{label: 'centers ', url: '/centers/:id'}] };
+    }
     return configMap[url] || { title: 'Luxor University', breadcrumbs: [] };
   }
 }

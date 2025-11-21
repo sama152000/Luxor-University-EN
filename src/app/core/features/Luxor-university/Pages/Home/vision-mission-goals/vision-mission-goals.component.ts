@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AboutUniversityService } from '../../../Services/about-university.service';
 
 interface Tab {
   id: string;
@@ -18,15 +19,9 @@ export class VisionMissionGoalsComponent implements OnInit {
   isVisible = false;
   activeTab = 'vision';
 
-  tabs: Tab[] = [
-    { id: 'vision', title: 'Our Vision', content: `Luxor University aspires to be a leading regional university, globally recognized in higher education and scientific research, contributing to building a knowledge society and developing qualified human resources capable of competing locally, regionally, and globally while preserving Egypt's rich cultural and civilizational heritage.` },
-    { id: 'mission', title: 'Our Mission', content: `Luxor University is committed to providing high-quality education, fostering innovative scientific research, and serving the community by preparing graduates equipped with practical and theoretical skills to excel in local, regional, and global job markets.` },
-    { id: 'goals', title: 'Our Goals', content: [
-      `Prepare scientifically and professionally qualified graduates capable of competing in local, regional, and global job markets, with a focus on developing practical and theoretical skills.`,
-      `Enhance the level of scientific research and innovation at the university by supporting distinguished research projects and promoting international research collaboration.`,
-      `Contribute to sustainable community development through educational and research initiatives that preserve cultural heritage and address societal needs.`
-    ]}
-  ];
+  tabs: Tab[] = [];
+
+  constructor(private aboutUniversityService: AboutUniversityService) {}
 
   get activeTabTitle(): string {
     const tab = this.tabs.find(t => t.id === this.activeTab);
@@ -44,6 +39,13 @@ export class VisionMissionGoalsComponent implements OnInit {
   }
 
   ngOnInit() {
+    const data = this.aboutUniversityService.getAboutUniversity();
+    this.tabs = [
+      { id: 'vision', title: 'Our Vision', content: data.vision },
+      { id: 'mission', title: 'Our Mission', content: data.mission },
+      { id: 'goals', title: 'Our Goals', content: data.goals }
+    ];
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+<app-page-header></app-page-header>
+
+<div class="student-life-page">
+  
+  <!-- Main Layout: Sidebar + Detail -->
+  <div class="activities-layout" *ngIf="!loading">
+    <!-- Sidebar -->
+    <aside class="activities-sidebar">
+      <div class="sidebar-header">
+        <h3>Student Activities</h3>
+      </div>
+
+      <div class="sidebar-list">
+        <div 
+          class="activity-item"
+          *ngFor="let activity of filteredActivities"
+          [class.active]="selectedActivity?.id === activity.id"
+          (click)="selectActivity(activity)"
+        >
+          <div class="item-image">
+            <img [src]="getActivityImage(activity)" [alt]="activity.title">
+          </div>
+          <div class="item-info">
+            <h4>{{ activity.title }}</h4>
+            <p class="category">{{ activity.category.name }}</p>
+            <span class="schedule" *ngIf="activity.schedule">
+              <i class="pi pi-clock"></i> {{ activity.schedule }}
+            </span>
+          </div>
+          <i class="pi pi-chevron-right indicator"></i>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Detail Area -->
+    <main class="activity-detail" *ngIf="selectedActivity; else noSelection">
+      <button class="back-btn" (click)="selectedActivity = null">
+        <i class="pi pi-arrow-left"></i> Back
+      </button>
+
+      <div class="detail-header">
+        <img [src]="getActivityImage(selectedActivity)" [alt]="selectedActivity.title" class="detail-image">
+        <div class="header-info">
+          <span class="category-badge" [style.background-color]="getCategoryColor(selectedActivity.category)">
+            <i [class]="getCategoryIcon(selectedActivity.category)"></i>
+            {{ selectedActivity.category.name }}
+          </span>
+          <h1>{{ selectedActivity.title }}</h1>
+          <p class="description">{{ selectedActivity.description }}</p>
+        </div>
+      </div>
+
+      <div class="detail-body">
+        <!-- Info Grid -->
+        <div class="info-grid">
+          <div class="info-card" *ngIf="selectedActivity.location">
+            <i class="pi pi-map-marker"></i>
+            <div>
+              <strong>Location</strong>
+              <p>{{ selectedActivity.location }}</p>
+            </div>
+          </div>
+          <div class="info-card" *ngIf="selectedActivity.schedule">
+            <i class="pi pi-clock"></i>
+            <div>
+              <strong>Schedule</strong>
+              <p>{{ selectedActivity.schedule }}</p>
+            </div>
+          </div>
+          <div class="info-card" *ngIf="selectedActivity.contactInfo?.coordinator">
+            <i class="pi pi-user"></i>
+            <div>
+              <strong>Coordinator</strong>
+              <p>{{ selectedActivity.contactInfo }}</p>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+    </main>
+
+    <!-- No Activity Selected -->
+    <ng-template #noSelection>
+      <main class="no-selection">
+        <div class="placeholder">
+          <i class="pi pi-arrow-right" style="font-size: 5rem; color: #cbd5e1;"></i>
+          <h2>Select an Activity</h2>
+          <p>Click on any activity from the sidebar to view its details here</p>
+        </div>
+      </main>
+    </ng-template>
+  </div>
+
+  <!-- Contact Section -->
+</div>
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <h2 class="contact-title">
+        <i class="pi pi-phone"></i> Get in Touch
+      </h2>
+      <p class="contact-text">
+        Ready to join the vibrant student life at Luxor University?
+      </p>
+      <button pButton class="contact-btn pharaonic-btn-primary" label="Contact Us" icon="pi pi-send"></button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
