@@ -301,18 +301,18 @@ margin-left: 3rem;
 
  
   .contact-top-bar {
-    background: linear-gradient(
+    /* background: linear-gradient(
       135deg,
       var(--accent-color) 0%,
-      var(--dark-accent-color) 100%);
+      var(--dark-accent-color) 100%); */
+
     height: 1rem !important;
     display: flex;
    
   padding-left: 7rem !important;
     font-size: 0.875rem;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+   
     backdrop-filter: blur(10px);
   }
 }
