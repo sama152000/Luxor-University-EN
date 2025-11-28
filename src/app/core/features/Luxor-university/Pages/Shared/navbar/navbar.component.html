@@ -1,4 +1,16 @@
+
+
+
+
 <nav class="navbar-wrapper">
+  <div class="contact-top-bar" *ngIf="contactInfo">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-center align-items-center">
+        <span class="contact-item"><i class="pi pi-phone"></i> {{contactInfo.phone}}</span>
+        <span class="contact-item"><i class="pi pi-envelope"></i> {{contactInfo.email}}</span>
+      </div>
+    </div>
+  </div>
   <div class="top-navbar">
     <div class="container-fluid">
       <div class="d-flex justify-content-between align-items-center h-100">
@@ -22,11 +34,11 @@
           <img src="./assets/Logo.png" alt="Luxor University Logo" class="university-logo">
         </div>
         <div class="mobile-header">
-          
-          <button class="hamburger-btn" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation menu">
-            <i class="pi" [ngClass]="isMenuOpen ? 'pi-times' : 'pi-bars'"></i>
-          </button>
-        </div>
+
+           <button class="hamburger-btn" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation menu">
+             <i class="pi" [ngClass]="isMenuOpen ? 'pi-times' : 'pi-bars'"></i>
+           </button>
+         </div>
 
 
         <div class="menu-container">
