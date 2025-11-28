@@ -299,7 +299,17 @@ margin-left: 3rem;
     font-size: 0.9rem;
   }
 
- 
+ .logo-container {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+margin-top: 3rem;
+margin-left: 3rem;
+}
   .contact-top-bar {
     /* background: linear-gradient(
       135deg,
@@ -309,7 +319,9 @@ margin-left: 3rem;
     height: 1rem !important;
     display: flex;
    
-  padding-left: 7rem !important;
+  padding-left: 3rem !important;
+  text-align: right;
+  justify-content: right;
     font-size: 0.875rem;
     color: white;
    
