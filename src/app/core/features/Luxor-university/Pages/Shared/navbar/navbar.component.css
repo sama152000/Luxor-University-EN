@@ -318,7 +318,7 @@ margin-left: 3rem;
 
     height: 1rem !important;
     display: flex;
-   
+   padding-right: 0rem !important;
   padding-left: 0rem !important;
   text-align: right;
   justify-content: right;
